@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="images/Digital Agriculture System.png" type="image/x-icon">
+    <style>
+        #hamburger.open .bar:nth-child(1) {
+            transform: rotate(45deg);
+            translate: 5px 5px;
+        }
+
+        #hamburger.open .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        #hamburger.open .bar:nth-child(3) {
+            transform: rotate(-45deg);
+            translate: 5px -5px;
+        }
+
+        /* Mobile menu full screen background */
+        #mobile-menu {
+            background-color: black;
+        }
+
+        .underline-animation::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            /* Adjust the thickness of the underline */
+            background-color: white;
+            /* Set the underline color */
+            transition: width 0.3s ease;
+            /* Smooth transition */
+        }
+
+        .underline-animation:hover::after {
+            width: 100%;
+            /* Expands underline from left to right on hover */
+        }
+
+
+        .mx-auto {
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        body {
+            margin: 0;
+            /* padding-top: 70px; Adjust based on your header height */
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+
+        }
+
+        .bg-black {
+            padding-top: 50px;
+            /* Add extra padding to ensure content doesn't overlap with the header */
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+                /* Extra padding for smaller devices if header height changes */
+            }
+        }
+
+
+        #go-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #FF6347;
+            color: white;
+            border-radius: 50%;
+            padding: 25px;
+            font-size: 24px;
+            display: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.3s;
+        }
+
+        #go-to-top:hover {
+            background-color: #FF4500;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="absolute top-0 w-full flex justify-between items-center p-2 bg-gray-900 z-50">
+        <a href="index.html"><img src="images/Digital Agriculture System.png" alt="Sky Energy Solution Logo"
+                class="logo w-32 md:w-40"></a>
+        <!-- Navbar for desktop and mobile -->
+        <nav class="hidden md:block">
+            <ul class="flex space-x-5 text-lg">
+                <li>
+                    <a href="index.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        About Us
+                    </a>
+                </li>
+
+                <li>
+                    <a href="products.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Products
+                    </a>
+                </li>
+
+                <!-- <li>
+                    <a href="media.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Media
+                    </a>
+                </li> -->
+                <li>
+                    <a href="download.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Downloads
+                    </a>
+                </li>
+
+                <li>
+                    <a href="blog.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Blogs
+                    </a>
+                </li>
+                <li>
+                    <a href="career.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Careers
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Contact Us
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Mobile menu button (hamburger) -->
+        <div class="md:hidden">
+            <button id="hamburger" class="text-white text-2xl">
+                <div class="bar w-6 h-1 bg-white mb-1"></div>
+                <div class="bar w-6 h-1 bg-white mb-1"></div>
+                <div class="bar w-6 h-1 bg-white mb-1"></div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobile-menu"
+        class="md:hidden fixed top-0 left-0 w-full h-full bg-black transform translate-x-full transition-transform duration-300 z-50">
+        <!-- Close button -->
+        <button id="close-menu" class="absolute top-5 right-5 text-white text-3xl">✖</button>
+        <ul class="flex flex-col items-center justify-center space-y-5 text-white text-lg h-full">
+            <li><a href="index.html" class="hover:text-red-600 transition-colors duration-300">Home</a></li>
+            <li><a href="about.html" class="hover:text-red-600 transition-colors duration-300">About Us</a></li>
+            <li><a href="products.html" class="hover:text-red-600 transition-colors duration-300">Products</a></li>
+            <!-- <li><a href="media.html" class="hover:text-red-600 transition-colors duration-300">Media</a></li> -->
+            <li><a href="download.html" class="hover:text-red-600 transition-colors duration-300">Downloads</a></li>
+            <li><a href="blog.html" class="hover:text-red-600 transition-colors duration-300">Blog</a></li>
+            <li><a href="career.html" class="hover:text-red-600 transition-colors duration-300">Careers</a></li>
+            <li><a href="contact.html" class="hover:text-red-600 transition-colors duration-300">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <div class="bg-black text-white p-2.5 mt-2 md:mt-24 lg:mt-24 pt-20 md:pt-28">
+        <div class="max-w-4xl mx-auto text-center space-y-6 mb-7">
+            <!-- Heading -->
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-yellow-300">
+                PRODUCTS AND SERVICES
+            </h2>
+
+            <!-- Paragraph 1 -->
+            <p class="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed mt-4 text-justify">
+                Sky Energy Solution offers a comprehensive suite of innovative products and services designed to harness
+                the
+                power of solar energy across various sectors. Our diverse range includes
+                <span class="font-bold text-yellow-400">residential, commercial, and industrial rooftop</span>
+                installations, as well as large-scale ground mount projects. We take pride in manufacturing high-quality
+                <span class="font-bold text-yellow-400">solar street lights</span>, providing efficient illumination for
+                safer and more sustainable communities. Additionally, our
+                <span class="font-bold text-yellow-400">flexible and portable solar panels</span> cater to the
+                recreational vehicle market, offering on-the-go sustainable power solutions.
+            </p>
+
+            <!-- Paragraph 2 -->
+            <p class="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed mt-4 text-justify">
+                Sky Energy Solution specializes in solar <span class="font-bold text-yellow-400">water pumping systems,
+                    drone
+                    inspection services, and solar cleaning automation</span>, ensuring optimal performance and
+                longevity for solar installations of all scales. Furthermore, we are at the forefront of the electric
+                vehicle revolution, providing
+                <span class="font-bold text-yellow-400">EV charging stations</span> for cars and bikes, both for
+                individual users and large-scale stations. Our commitment extends to offering
+                <span class="font-bold text-yellow-400">carbon credit services</span>, allowing companies to monetize
+                their renewable carbon offset initiatives. Join us in embracing a future powered by Sky Energy
+                Solution's
+                cutting-edge products and services, where sustainability meets efficiency.
+            </p>
+        </div>
+    </div>
+
+
+    <div class="bg-gray-100 py-8">
+        <div class="container mx-auto space-y-12 px-4">
+
+            <!-- Container for Residential Solar Solutions -->
+            <div class="bg-white p-6 rounded-lg shadow-2xl flex flex-col md:flex-row items-center md:space-x-8">
+
+                <!-- Text Section -->
+                <div class="mt-4 md:mt-0">
+                    <h2 class="text-red-600 text-3xl font-bold mb-2">Residential Solar Solutions</h2>
+                    <h3 class="text-gray-800 text-xl font-semibold mb-4">Powering Homes with Clean Energy</h3>
+                    <p class="text-gray-700 text-base leading-relaxed">
+                        Sky Energy Solution offers tailored residential solar solutions, providing homeowners with
+                        efficient
+                        and sustainable energy options. Experience the benefits of solar power while contributing to a
+                        cleaner environment.
+                    </p>
+                </div>
+
+                <!-- Image Section -->
+                <div class="flex-shrink-0 w-full md:w-80 h-auto">
+                    <img src="images/residential.jpg" alt="Residential Solar Solutions"
+                        class="rounded-lg w-full h-auto object-contain">
+                </div>
+
+            </div>
+
+            <!-- Container for Commercial & Industrial Rooftop Solutions -->
+            <div class="bg-black p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center md:space-x-8">
+                <!-- Image Section -->
+                <div class="flex-shrink-0 w-full md:w-80 h-auto">
+                    <img src="images/th.jpg" alt="Commercial & Industrial Rooftop Solutions"
+                        class="rounded-lg w-full h-auto object-contain">
+                </div>
+
+                <!-- Text Section -->
+                <div class="mt-4 md:mt-0">
+                    <h2 class="text-red-600 text-3xl font-bold mb-2">Commercial & Industrial Rooftop Solutions</h2>
+                    <h3 class="text-white text-xl font-semibold mb-4">Energizing Businesses for a Sustainable Future
+                    </h3>
+                    <p class="text-white text-base leading-relaxed">
+                        Our commercial and industrial rooftop solutions are designed to meet the energy needs of
+                        businesses. Sky Energy Solution empowers enterprises with reliable and cost-effective solar
+                        installations, reducing carbon footprints and operating costs.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="bg-gray-100 py-8">
+        <div class="container mx-auto space-y-12 px-4">
+
+            <!-- Solar Water Pumping Systems -->
+            <div class="bg-white p-6 rounded-lg shadow-2xl flex flex-col md:flex-row items-center md:space-x-8">
+                <!-- Text Section -->
+                <div class="order-2 md:order-1">
+                    <h2 class="text-red-600 text-3xl font-bold mb-2">Solar Water Pumping Systems</h2>
+                    <h3 class="text-gray-800 text-xl font-semibold mb-4">Harnessing the Sun's Power for Water Solutions
+                    </h3>
+                    <p class="text-gray-700 text-base leading-relaxed">
+                        Sky Energy Solution's solar water pumping systems offer sustainable and energy-efficient
+                        solutions
+                        for water management. Experience the benefits of solar-powered pumping for agriculture,
+                        irrigation, and more.
+                    </p>
+                </div>
+                <!-- Image Section -->
+                <div class="flex-shrink-0 order-1 md:order-2 w-full md:w-80">
+                    <img src="images/th (1).jpg" alt="Solar Water Pumping Systems"
+                        class="rounded-lg w-full h-auto object-contain">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="bg-gray-100 py-8">
+        <div class="container mx-auto space-y-12 px-4">
+
+            <!-- Solar Cleaning Automation -->
+            <div class="bg-black p-6 rounded-lg shadow-2xl flex flex-col md:flex-row items-center md:space-x-8">
+                <!-- Image Section -->
+                <div class="flex-shrink-0 w-full md:w-80">
+                    <img src="images/th (2).jpg" alt="Solar Cleaning Automation"
+                        class="rounded-lg w-full h-auto object-contain">
+                </div>
+
+                <!-- Text Section -->
+                <div class="order-2 md:order-1">
+                    <h2 class="text-red-600 text-3xl font-bold mb-2">Solar Cleaning Automation</h2>
+                    <h3 class="text-white text-xl font-semibold mb-4">Efficiency Redefined with Solar Cleaning
+                        Automation</h3>
+                    <p class="text-white text-base leading-relaxed">
+                        Sky Energy Solution introduces state-of-the-art solar cleaning automation for both small-scale
+                        and
+                        large-scale installations. Enhance the performance of your solar systems with our automated
+                        cleaning
+                        solutions.
+                    </p>
+                </div>
+            </div>
+
+            <!-- EV Charging Stations -->
+            <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center md:space-x-8">
+
+                <!-- Text Section -->
+                <div class="order-2 md:order-1">
+                    <h2 class="text-red-600 text-3xl font-bold mb-2">EV Charging Stations</h2>
+                    <h3 class="text-black text-xl font-semibold mb-4">Charging the Future with Sky Energy Solution for
+                        Home and Commercial Spaces</h3>
+                    <p class="text-black text-base leading-relaxed">
+                        Sky Energy Solution is leading the way in EV charging technology, offering innovative solutions
+                        for
+                        both homes and commercial spaces. Join the electric revolution with our reliable and scalable EV
+                        charging stations, providing seamless and eco-friendly solutions for homeowners and businesses.
+                        Not only do our charging stations contribute to a sustainable future, but they also offer an
+                        opportunity to earn for commercial spaces, turning sustainability into a wise investment.
+                    </p>
+                </div>
+
+                <!-- Image Section -->
+                <div class="flex-shrink-0 order-1 w-full md:w-80">
+                    <img src="images/th (3).jpg" alt="EV Charging Stations"
+                        class="rounded-lg w-full h-auto object-contain">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="bg-gray-900 text-gray-700 py-8 px-4">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
+
+            <!-- Left Section - Details in a Box -->
+            <div
+                class="text-white p-6 w-full md:w-64 h-auto flex flex-col justify-between items-center md:items-start text-center md:text-left">
+                <p><span class="font-bold">Adress:</span><br>Office.no 423, 4th Floor, Northplaza Complex, Motera,
+                    Ahmedabad, Gujarat</p>
+                <p class="mt-2"><span class="font-bold">Email:</span><br>skysolarsolutionhelp@gmail.com</p>
+                <p class="mt-2"><span class="font-bold">Phone:</span><br>8799606056</p>
+            </div>
+
+            <!-- Center Section - Social Media Icons -->
+            <div class="flex flex-col items-center gap-5">
+                <p class="font-semibold text-white md:text-base">Follow us</p>
+                <div class="flex space-x-4 text-white text-2xl">
+                    <a href="#" class="hover:text-red-600"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-red-600"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-red-600"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-red-600"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-red-600"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="hover:text-red-600"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p class="font-semibold text-xl md:text-3xl text-center text-white">Sky Energy Solution</p>
+            </div>
+
+        </div>
+
+        <!-- Copyright Line -->
+        <div class="text-center mt-6">
+            <p class="text-white text-sm md:text-base">© 2024 Sky Energy Solution. Powered by Faydabazar Pvt Ltd. All rights reserved.</p>
+        </div>
+    </div>
+
+
+    <button id="go-to-top" class="text-2xl">
+        ↑
+    </button>
+
+    <script>
+        // Get the "Go to Top" button
+        const goToTopBtn = document.getElementById("go-to-top");
+
+        // Show or hide the button depending on scroll position
+        window.onscroll = function () {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                goToTopBtn.style.display = "block"; // Show button
+            } else {
+                goToTopBtn.style.display = "none"; // Hide button
+            }
+        };
+
+        // Scroll smoothly to the top when button is clicked
+        goToTopBtn.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
+
+    <script>
+        // Get elements
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        // Open the menu
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full'); // Open menu
+            hamburger.classList.add('open'); // Change hamburger to cross
+        });
+
+        // Close the menu
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full'); // Close menu
+            hamburger.classList.remove('open'); // Change cross back to hamburger
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="images/Digital Agriculture System.png" type="image/x-icon">
+    <style>
+        #hamburger.open .bar:nth-child(1) {
+            transform: rotate(45deg);
+            translate: 5px 5px;
+        }
+
+        #hamburger.open .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        #hamburger.open .bar:nth-child(3) {
+            transform: rotate(-45deg);
+            translate: 5px -5px;
+        }
+
+        /* Mobile menu full screen background */
+        #mobile-menu {
+            background-color: black;
+        }
+
+        .underline-animation::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            /* Adjust the thickness of the underline */
+            background-color: white;
+            /* Set the underline color */
+            transition: width 0.3s ease;
+            /* Smooth transition */
+        }
+
+        .underline-animation:hover::after {
+            width: 100%;
+            /* Expands underline from left to right on hover */
+        }
+
+
+
+
+        img {
+            max-width: 100%;
+            /* Ensures the image scales proportionally */
+            height: auto;
+            /* Maintains aspect ratio */
+        }
+
+        /* Additional adjustments for mobile screens */
+        @media (max-width: 768px) {
+            .h-96 {
+                height: auto;
+                /* Override hardcoded height on smaller screens */
+            }
+        }
+
+
+
+        /* Add this CSS to your stylesheet */
+    </style>
+</head>
+
+<body>
+    <header class="absolute top-0 w-full flex justify-between items-center p-2 bg-gray-900 z-50">
+        <a href="index.html"><img src="images/Digital Agriculture System.png" alt="Sky Energy Solution Logo"
+                class="logo w-32 md:w-40"></a>
+        <!-- Navbar for desktop and mobile -->
+        <nav class="hidden md:block">
+            <ul class="flex space-x-5 text-lg">
+                <li>
+                    <a href="index.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        About Us
+                    </a>
+                </li>
+
+                <li>
+                    <a href="products.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Products
+                    </a>
+                </li>
+
+                <!-- <li>
+                    <a href="media.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Media
+                    </a>
+                </li> -->
+                <li>
+                    <a href="download.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Downloads
+                    </a>
+                </li>
+
+                <li>
+                    <a href="blog.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Blogs
+                    </a>
+                </li>
+                <li>
+                    <a href="career.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Careers
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Contact Us
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Mobile menu button (hamburger) -->
+        <div class="md:hidden">
+            <button id="hamburger" class="text-white text-2xl">
+                <div class="bar w-6 h-1 bg-white mb-1"></div>
+                <div class="bar w-6 h-1 bg-white mb-1"></div>
+                <div class="bar w-6 h-1 bg-white mb-1"></div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobile-menu"
+        class="md:hidden fixed top-0 left-0 w-full h-full bg-black transform translate-x-full transition-transform duration-300 z-50">
+        <!-- Close button -->
+        <button id="close-menu" class="absolute top-5 right-5 text-white text-3xl">✖</button>
+        <ul class="flex flex-col items-center justify-center space-y-5 text-white text-lg h-full">
+            <li><a href="index.html" class="hover:text-red-600 transition-colors duration-300">Home</a></li>
+            <li><a href="about.html" class="hover:text-red-600 transition-colors duration-300">About Us</a></li>
+            <li><a href="products.html" class="hover:text-red-600 transition-colors duration-300">Products</a></li>
+            <!-- <li><a href="media.html" class="hover:text-red-600 transition-colors duration-300">Media</a></li> -->
+            <li><a href="download.html" class="hover:text-red-600 transition-colors duration-300">Downloads</a></li>
+            <li><a href="blog.html" class="hover:text-red-600 transition-colors duration-300">Blog</a></li>
+            <li><a href="career.html" class="hover:text-red-600 transition-colors duration-300">Careers</a></li>
+            <li><a href="contact.html" class="hover:text-red-600 transition-colors duration-300">Contact Us</a></li>
+        </ul>
+    </div>
+
+
+
+    <div class="py-8 mt-48 mb-12">
+        <div class="container mx-auto px-4">
+            <!-- Section for Images -->
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-8">
+                <!-- Brochure Section -->
+                <div class="w-full md:w-1/2">
+                    <div class="text-center mb-4">
+                        <h3 class="text-3xl font-bold text-red-600">Brochure</h3>
+                    </div>
+                    <img src="images/brochure.jpg" alt="Brochure Title"
+                        class="zoomable object-contain w-full h-96 cursor-pointer">
+                    <div class="text-center mt-2">
+                        <a href="images/brochure.jpg" download
+                            class="text-red-600 text-xl font-bold hover:underline">Download Brochure</a>
+                    </div>
+                </div>
+
+                <!-- Hiring Section -->
+                <div class="w-full md:w-1/2">
+                    <div class="text-center mb-7 ">
+                        <h3 class="text-3xl font-bold text-red-600">Hiring</h3>
+                    </div>
+                    <img src="images/hiring.jpg" alt="Hiring Title"
+                        class="zoomable object-contain w-full h-96 cursor-pointer">
+                    <div class="text-center mt-2">
+                        <a href="images/hiring.jpg" download class="text-blue-500 underline hover:text-blue-700"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="bg-gray-900 text-gray-700 py-8 px-4">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
+
+            <!-- Left Section - Details in a Box -->
+            <div
+                class="text-white p-6 w-full md:w-64 h-auto flex flex-col justify-between items-center md:items-start text-center md:text-left">
+                <p><span class="font-bold">Adress:</span><br>Office.no 423, 4th Floor, Northplaza Complex, Motera,
+                    Ahmedabad, Gujarat</p>
+                <p class="mt-2"><span class="font-bold">Email:</span><br>skysolarsolutionhelp@gmail.com</p>
+                <p class="mt-2"><span class="font-bold">Phone:</span><br>8799606056</p>
+            </div>
+
+            <!-- Center Section - Social Media Icons -->
+            <div class="flex flex-col items-center gap-5">
+                <p class="font-semibold text-white md:text-base">Follow us</p>
+                <div class="flex space-x-4 text-white text-2xl">
+                    <a href="#" class="hover:text-red-600"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-red-600"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-red-600"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-red-600"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-red-600"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="hover:text-red-600"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p class="font-semibold text-xl md:text-3xl text-center text-white">Sky Energy Solution </p>
+            </div>
+
+        </div>
+
+        <!-- Copyright Line -->
+        <div class="text-center mt-6">
+            <p class="text-white text-sm md:text-base">© 2024 Sky Energy Solution. Powered by Faydabazar Pvt Ltd. All
+                rights reserved.</p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script>
+        // Get elements
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        // Open the menu
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full'); // Open menu
+            hamburger.classList.add('open'); // Change hamburger to cross
+        });
+
+        // Close the menu
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full'); // Close menu
+            hamburger.classList.remove('open'); // Change cross back to hamburger
+        });
+    </script>
+
+
+</body>
+
+</html>

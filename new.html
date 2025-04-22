@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faydabazar - Digital Marketing Company</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Smooth Transition for Slider */
+        .slider {
+            transition: background-image 1s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-gray-900 text-white">
+
+    <!-- Header -->
+    <header class="bg-gray-800 text-white py-4 shadow-md fixed top-0 w-full z-50">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <a href="#" class="text-3xl font-bold">
+                <span class="text-orange-500">FB</span><span class="text-blue-500">PAY</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex space-x-8 text-lg">
+                <a href="newlogin.php" class="hover:text-yellow-400 transition">Register</a>
+                <a href="memberlogin.php" class="hover:text-yellow-400 transition">Log In</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="menuButton" class="lg:hidden focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden absolute bg-gray-900 w-full text-center py-4">
+            <a href="newlogin.php" class="block py-2 hover:text-yellow-400 transition">Register</a>
+            <a href="memberlogin.php" class="block py-2 hover:text-yellow-400 transition">Log In</a>
+        </div>
+    </header>
+
+    <!-- Hero Section with Responsive Image Slider -->
+    <section class="relative flex items-center justify-center text-center px-6 h-screen">
+        <!-- Background Image Slider -->
+        <div id="slider"
+            class="absolute inset-0 w-full h-full bg-center bg-cover bg-no-repeat transition-opacity duration-1000">
+        </div>
+    
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    
+        <!-- Hero Content -->
+        <div class="relative z-10 text-white p-6 bg-black bg-opacity-60 rounded-lg shadow-lg max-w-lg mx-auto">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-yellow-400">Dream Big, Act Now!</h1>
+            <p class="mt-4 text-lg md:text-xl text-gray-300">Your future success starts today. 🚀</p>
+        </div>
+    </section>
+    
+    <!-- JavaScript for Mobile Menu & Auto Image Slider -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById("menuButton").addEventListener("click", function () {
+            document.getElementById("mobileMenu").classList.toggle("hidden");
+        });
+
+        // Background Image Slider
+        const slider = document.getElementById("slider");
+        const images = ["Best.jpg", "Best1.jpg"];
+        let currentIndex = 0;
+
+        function changeBackground() {
+            slider.style.backgroundImage = `url('${images[currentIndex]}')`;
+            currentIndex = (currentIndex + 1) % images.length;
+        }
+
+        setInterval(changeBackground, 5000);
+        changeBackground();
+    </script>
+
+</body>
+
+</html>

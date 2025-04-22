@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="icon" href="images/Digital Agriculture System.png" type="image/x-icon">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+		integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<style>
+		.underline-animation::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 0;
+			height: 2px;
+			/* Adjust the thickness of the underline */
+			background-color: white;
+			/* Set the underline color */
+			transition: width 0.3s ease;
+			/* Smooth transition */
+		}
+
+		.underline-animation:hover::after {
+			width: 100%;
+			/* Expands underline from left to right on hover */
+		}
+
+
+
+
+		/* Transform hamburger to cross icon */
+		#hamburger.open .bar:nth-child(1) {
+			transform: rotate(45deg);
+			translate: 5px 5px;
+		}
+
+		#hamburger.open .bar:nth-child(2) {
+			opacity: 0;
+		}
+
+		#hamburger.open .bar:nth-child(3) {
+			transform: rotate(-45deg);
+			translate: 5px -5px;
+		}
+
+		/* Mobile menu full screen background */
+		#mobile-menu {
+			background-color: black;
+		}
+	</style>
+</head>
+
+<body class="bg-gray-900">
+	<section
+		class="relative h-screen text-white flex flex-col justify-center items-center text-center p-5 md:p-8 lg:p-12">
+		<!-- Header Section -->
+		<header class="absolute top-0 w-full flex justify-between items-center p-4 md:p-8 z-10">
+			<a href="index.html">
+				<img src="images/Digital Agriculture System.png" alt="Sky Energy Solution Logo"
+					class="logo w-32 md:w-48 lg:w-64">
+			</a>
+			<!-- Navbar for desktop -->
+			<nav class="hidden md:block">
+				<ul class="flex space-x-5 text-base md:text-lg lg:text-xl">
+					<li><a href="index.html"
+							class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">Home</a>
+					</li>
+					<li><a href="about.html"
+							class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">About
+							Us</a></li>
+					<li><a href="products.html"
+							class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">Products</a>
+					</li>
+					<!-- <li><a href="media.html" class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">Media</a></li> -->
+					<li><a href="download.html"
+							class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">Downloads</a>
+					</li>
+					<li><a href="blog.html"
+							class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">Blog</a>
+					</li>
+					<li><a href="career.html"
+							class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">Careers</a>
+					</li>
+					<li><a href="contact.html"
+							class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">Contact
+							Us</a></li>
+				</ul>
+			</nav>
+			<!-- Mobile menu button -->
+			<div class="md:hidden">
+				<button id="hamburger" class="text-white text-3xl">
+					<div class="bar w-8 h-1 bg-white mb-1"></div>
+					<div class="bar w-8 h-1 bg-white mb-1"></div>
+					<div class="bar w-8 h-1 bg-white"></div>
+				</button>
+			</div>
+		</header>
+
+		<!-- Hero Content -->
+		<div class="relative z-10 text-white mt-16 md:mt-24">
+			<h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold leading-snug md:leading-tight mb-5">
+				"Empowering Sustainable Energy" from <span class="text-yellow-500">Homes</span> to <span
+					class="text-yellow-500">Megawatts</span>
+			</h1>
+			<p class="text-sm sm:text-lg md:text-xl lg:text-2xl mb-8">
+				Your trusted partner in building a cleaner, brighter future
+			</p>
+			<a href="contact.html">
+				<button
+					class="px-6 py-3 text-sm sm:text-lg lg:text-xl font-bold bg-yellow-500 text-black border-1 	 rounded-lg hover:bg-black hover:text-yellow-500 transition duration-300">
+					Get a Free Quote & Explore Our Solutions
+				</button>
+			</a>
+		</div>
+
+		<!-- Background image and overlay -->
+		<div class="absolute top-0 left-0 w-full h-full bg-cover bg-center bg-fixed z-[-2]"
+			style="background-image: url('images/shutterstock_169512857-1.jpg');"></div>
+		<div class="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-[-1]"></div>
+	</section>
+
+	<!-- Mobile Menu -->
+	<div id="mobile-menu"
+		class="fixed top-0 left-0 w-full h-full bg-black transform translate-x-full transition-transform duration-300 z-50">
+		<!-- Close button -->
+		<button id="close-menu" class="absolute top-4 right-4 text-white text-3xl">✖</button>
+		<ul class="flex flex-col items-center justify-center space-y-6 text-white text-lg h-full">
+			<li><a href="index.html" class="hover:text-yellow-500 transition duration-300">Home</a></li>
+			<li><a href="about.html" class="hover:text-yellow-500 transition duration-300">About Us</a></li>
+			<li><a href="products.html" class="hover:text-yellow-500 transition duration-300">Products</a></li>
+			<!-- <li><a href="media.html" class="hover:text-yellow-500 transition duration-300">Media</a></li> -->
+			<li><a href="download.html" class="hover:text-yellow-500 transition duration-300">Downloads</a></li>
+			<li><a href="blog.html" class="hover:text-yellow-500 transition duration-300">Blog</a></li>
+			<li><a href="career.html" class="hover:text-yellow-500 transition duration-300">Careers</a></li>
+			<li><a href="contact.html" class="hover:text-yellow-500 transition duration-300">Contact Us</a></li>
+		</ul>
+	</div>
+</body>
+
+
+<!-- Script to toggle mobile menu -->
+
+<div class="bg-gray-700 text-white py-16 px-8">
+	<h1 class="text-4xl font-bold text-center mb-8">Worldwide Impact</h1>
+	<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+		<div>
+			<h2 class="text-2xl font-bold mb-4">Global Reach, Local Impact</h2>
+			<p style="text-align: justify;">
+				Sky Energy Solution's influence spans the globe, with a strategic presence in diverse regions.
+				From bustling urban centers to remote communities, our solar solutions are making a tangible
+				difference, addressing energy needs and fostering sustainability on an international scale.
+			</p>
+			<img src="images/pexels-cristian-rojas-8853507.jpg" alt="Global Reach, Local Impact"
+				class="w-full mt-8 max-h-[400px] object-cover transition-transform duration-300 transform hover:scale-105 rounded-lg">
+		</div>
+		<div>
+			<h2 class="text-2xl font-bold mb-4">Collaborative Sustainability</h2>
+			<p style="text-align: justify;">
+				We believe in the power of collaboration. Sky Energy Solution actively engages in global partnerships
+				and
+				projects, working with governments, organizations, and businesses to drive the clean energy
+				revolution. Our diverse and culturally rich team ensures that our solar solutions are not only
+				globally applicable but also locally relevant.
+			</p>
+			<img src="images/pexels-fauxels-3183172.jpg" alt="Collaborative Sustainability"
+				class="w-full mt-8 max-h-[400px] object-cover transition-transform duration-300 transform hover:scale-105 rounded-lg">
+		</div>
+		<div>
+			<h2 class="text-2xl font-bold mb-4">United for a Sustainable Future</h2>
+			<p style="text-align: justify;">
+				Join us in shaping a sustainable future for all. Sky Energy Solution's global workforce, united by a
+				shared vision, leads the way in advancing clean energy solutions. Together, we contribute to the
+				achievement of international sustainability goals, lighting up the world with the brilliance of
+				solar power.
+			</p>
+			<img src="images/solar main3.jpg" alt="United for a Sustainable Future"
+				class="w-full mt-8 max-h-[400px] object-cover transition-transform duration-300 transform hover:scale-105 rounded-lg">
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="bg-white text-black py-8 md:py-12 lg:py-16 h-auto">
+	<h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-black	 px-4 sm:px-8">
+		Empowering your future with solar energy
+	</h1>
+</div>
+
+
+<div class="bg-gray-900 text-gray-700 py-8 px-4">
+	<div class="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
+
+		<!-- Left Section - Details in a Box -->
+		<div
+			class="text-white p-6 w-full md:w-64 h-auto flex flex-col justify-between items-center md:items-start text-center md:text-left">
+			<p><span class="font-bold">Adress:</span><br>Office.no 423, 4th Floor, Northplaza Complex, Motera,
+				Ahmedabad, Gujarat</p>
+			<p class="mt-2"><span class="font-bold">Email:</span><br>skysolarsolutionhelp@gmail.com</p>
+			<p class="mt-2"><span class="font-bold">Phone:</span><br>8799606056</p>
+		</div>
+
+		<!-- Center Section - Social Media Icons -->
+		<div class="flex flex-col items-center gap-5">
+			<p class="font-semibold text-white md:text-base">Follow us</p>
+			<div class="flex space-x-4 text-white text-2xl">
+				<a href="#" class="hover:text-red-600"><i class="fab fa-twitter"></i></a>
+				<a href="#" class="hover:text-red-600"><i class="fab fa-facebook"></i></a>
+				<a href="#" class="hover:text-red-600"><i class="fab fa-instagram"></i></a>
+				<a href="#" class="hover:text-red-600"><i class="fab fa-linkedin"></i></a>
+				<a href="#" class="hover:text-red-600"><i class="fab fa-youtube"></i></a>
+				<a href="#" class="hover:text-red-600"><i class="fab fa-whatsapp"></i></a>
+			</div>
+			<p class="font-semibold text-xl md:text-3xl text-center text-white">Sky Energy Solution </p>
+		</div>
+
+	</div>
+
+	<!-- Copyright Line -->
+	<div class="text-center mt-6">
+		<p class="text-white text-sm md:text-base">© 2024 Sky Energy Solution. Powered by Faydabazar Pvt Ltd. All rights
+			reserved.</p>
+	</div>
+</div>
+
+
+<script>
+	// Get elements
+	const hamburger = document.getElementById('hamburger');
+	const mobileMenu = document.getElementById('mobile-menu');
+	const closeMenu = document.getElementById('close-menu');
+
+	// Open the menu	
+	hamburger.addEventListener('click', () => {
+		mobileMenu.classList.remove('translate-x-full'); // Open menu
+		hamburger.classList.add('open'); // Change hamburger to cross
+	});
+
+	// Close the menu
+	closeMenu.addEventListener('click', () => {
+		mobileMenu.classList.add('translate-x-full'); // Close menu
+		hamburger.classList.remove('open'); // Change cross back to hamburger
+	});
+</script>
+</body>
+
+</html>

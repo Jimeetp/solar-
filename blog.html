@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Blog</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="images/Digital Agriculture System.png" type="image/x-icon">
+    <style>
+        #hamburger.open .bar:nth-child(1) {
+            transform: rotate(45deg);
+            translate: 5px 5px;
+        }
+
+        #hamburger.open .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        #hamburger.open .bar:nth-child(3) {
+            transform: rotate(-45deg);
+            translate: 5px -5px;
+        }
+
+        #mobile-menu {
+            background-color: black;
+        }
+
+        .underline-animation::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+
+        .underline-animation:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    <header class="absolute top-0 w-full flex justify-between items-center p-2 bg-gray-900 z-50">
+        <a href="index.html"><img src="images/Digital Agriculture System.png" alt="Sky Energy Solution Logo"
+                class="logo w-32 md:w-40"></a>
+        <nav class="hidden md:block">
+            <ul class="flex space-x-5 text-lg">
+                <li>
+                    <a href="index.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        About Us
+                    </a>
+                </li>
+                <li>
+                    <a href="products.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Products
+                    </a>
+                </li>
+                <li>
+                    <a href="download.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Downloads
+                    </a>
+                </li>
+                <li>
+                    <a href="blog.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Blogs
+                    </a>
+                </li>
+                <li>
+                    <a href="career.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Careers
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Contact Us
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="md:hidden">
+            <button id="hamburger" class="text-white text-2xl">
+                <div class="bar w-6 h-1 bg-white mb-1"></div>
+                <div class="bar w-6 h-1 bg-white mb-1"></div>
+                <div class="bar w-6 h-1 bg-white mb-1"></div>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-menu"
+        class="md:hidden fixed top-0 left-0 w-full h-full bg-black transform translate-x-full transition-transform duration-300 z-50">
+        <button id="close-menu" class="absolute top-5 right-5 text-white text-3xl">✖</button>
+        <ul class="flex flex-col items-center justify-center space-y-5 text-white text-lg h-full">
+            <li><a href="index.html" class="hover:text-red-600 transition-colors duration-300">Home</a></li>
+            <li><a href="about.html" class="hover:text-red-600 transition-colors duration-300">About Us</a></li>
+            <li><a href="products.html" class="hover:text-red-600 transition-colors duration-300">Products</a></li>
+            <li><a href="download.html" class="hover:text-red-600 transition-colors duration-300">Downloads</a></li>
+            <li><a href="blog.html" class="hover:text-red-600 transition-colors duration-300">Blog</a></li>
+            <li><a href="career.html" class="hover:text-red-600 transition-colors duration-300">Careers</a></li>
+            <li><a href="contact.html" class="hover:text-red-600 transition-colors duration-300">Contact Us</a></li>
+        </ul>
+    </div>
+
+
+    <section class="bg-white py-52">
+        <div class="container mx-auto text-center -mb-52">
+            <h1 class="text-6xl mt-2 font-bold text-red-600">Our Blog</h1>
+            <p class="text-2xl mt-12 sm-mb-5 text-gray-700">Explore our latest articles on solar energy and sustainability</p>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <main class="container mx-auto py-52 px-6 -mt-24">
+        <section class="bg-black rounded-lg shadow-2xl p-6 mb-8 -mt-24">
+            <h2 class="text-2xl font-bold text-red-600">Why Solar Energy is the Future of Sustainable Power</h2>
+            <p class="text-white mt-4">
+                As the world shifts toward renewable energy sources, solar power has emerged as a leader in the sustainability race. With technological advancements and government incentives, harnessing the sun’s energy is now more accessible than ever.
+            </p>
+            <ul class="list-disc pl-5 mt-4 text-white">
+                <li><strong>Cost Savings:</strong> Reduce electricity bills by generating your own power.</li>
+                <li><strong>Environmental Impact:</strong> Solar panels reduce carbon emissions, helping combat climate change.</li>
+                <li><strong>Energy Independence:</strong> Solar power frees you from reliance on fossil fuels and unpredictable energy prices.</li>
+                <li><strong>Scalability:</strong> Solar energy systems can easily be expanded by adding more panels to meet growing energy needs.</li>
+                <li><strong>Job Creation:</strong> The solar industry creates thousands of jobs globally, driving economic growth and innovation.</li>
+                <li><strong>Technological Advancements:</strong> Innovations in solar technology, such as high-efficiency panels and energy storage systems, make solar more reliable and efficient.</li>
+                <li><strong>Durability and Longevity:</strong> Modern solar panels are built to last for 25 years or more, making them a long-term investment.</li>
+                <li><strong>Grid Stability:</strong> Widespread solar adoption reduces strain on the energy grid, especially during peak hours.</li>
+                <li><strong>Off-Grid Applications:</strong> Solar energy is ideal for powering remote locations without access to traditional electricity grids.</li>
+                <li><strong>Resilience to Natural Disasters:</strong> Solar power, especially when paired with batteries, provides reliable electricity during power outages and emergencies.</li>
+            </ul>
+        </section>
+        
+
+        <section class="bg-white rounded-lg shadow-2xl p-6 mb-8 mt-24">
+            <h2 class="text-2xl font-bold text-red-600">Top 5 Factors to Consider Before Installing Solar Panels</h2>
+            <p class="text-black mt-4">
+                Installing a solar system is an excellent decision for your home or business. However, it’s crucial to consider these factors to maximize efficiency and savings:
+            </p>
+            <ol class="list-decimal pl-5 mt-4 text-black">
+                <li><strong>Location and Sunlight Availability:</strong> Evaluate the amount of sunlight your area receives daily. South-facing roofs generally receive the most sunlight in the northern hemisphere.</li>
+                <li><strong>Roof Condition:</strong> Ensure your roof is in good condition and can support the weight of solar panels. Consider roof repairs or replacements before installation if necessary.</li>
+                <li><strong>Energy Needs:</strong> Calculate your electricity consumption over the past year to determine the size and capacity of the solar system you’ll need.</li>
+                <li><strong>Budget and Incentives:</strong> Research government subsidies, tax credits, or financing options to reduce upfront costs and make solar more affordable.</li>
+                <li><strong>Installer Reputation:</strong> Choose certified and experienced solar panel installers. Read reviews, ask for references, and verify warranties and service guarantees.</li>
+                <li><strong>Weather and Climate:</strong> Understand how your local weather patterns and climate may impact solar panel efficiency. While solar works in cloudy weather, high-efficiency panels may be better in less sunny areas.</li>
+                <li><strong>Energy Storage:</strong> Consider whether you want to pair your solar system with a battery backup to store excess energy for use during power outages or at night.</li>
+                <li><strong>Maintenance Requirements:</strong> Understand the maintenance involved, such as cleaning the panels and checking the inverter periodically to ensure optimal performance.</li>
+                <li><strong>Local Permits and Regulations:</strong> Check with local authorities about zoning laws, permits, and grid connection requirements to avoid any legal or procedural issues.</li>
+                <li><strong>Future Energy Goals:</strong> Plan for future expansions or upgrades, like adding more panels or integrating electric vehicle (EV) charging stations.</li>
+            </ol>
+        </section>
+        
+
+        <section class="bg-black rounded-lg shadow-2xl p-6 mt-24">
+            <h2 class="text-2xl font-bold text-red-600">How Solar Energy Can Boost Property Value</h2>
+            <p class="text-white mt-4">
+                Did you know that installing solar panels can significantly increase your property's market value?
+            </p>
+            <ul class="list-disc pl-5 mt-4 text-white">
+                <li><strong>Lower Utility Bills:</strong> Future owners benefit from reduced energy costs.</li>
+                <li><strong>Eco-Friendly Appeal:</strong> Sustainability is an attractive feature for modern buyers.</li>
+                <li><strong>Long-Term Investment:</strong> Solar systems often come with warranties, ensuring reliability for years.</li>
+                <li><strong>Increased Market Demand:</strong> Properties with solar panels are in higher demand, attracting environmentally conscious buyers.</li>
+                <li><strong>Energy Independence:</strong> Solar systems reduce dependency on the grid, offering greater control over energy use.</li>
+                <li><strong>Government Incentives:</strong> Homes with solar installations may qualify for tax credits, making them more appealing to buyers.</li>
+                <li><strong>Improved Resale Value:</strong> Studies show that homes with solar panels often sell faster and at higher prices than non-solar properties.</li>
+                <li><strong>Low Maintenance Costs:</strong> Solar panels require minimal maintenance, adding to their attractiveness for potential buyers.</li>
+                <li><strong>Modern Aesthetics:</strong> Sleek solar panel designs can enhance the visual appeal of a property.</li>
+                <li><strong>Reduced Carbon Footprint:</strong> A solar-powered home aligns with the growing preference for green living among buyers.</li>
+            </ul>
+        </section>
+        
+    </main>
+
+    <div class="bg-gray-900 text-gray-700 py-8 px-4">
+		<div class="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
+	
+			<!-- Left Section - Details in a Box -->
+			<div class="text-white p-6 w-full md:w-64 h-auto flex flex-col justify-between items-center md:items-start text-center md:text-left">
+				<p><span class="font-bold">Adress:</span><br>Office.no 423, 4th Floor, Northplaza Complex, Motera, Ahmedabad, Gujarat</p>
+				<p class="mt-2"><span class="font-bold">Email:</span><br>skysolarsolutionhelp@gmail.com</p>
+				<p class="mt-2"><span class="font-bold">Phone:</span><br>8799606056</p>
+			</div>
+	
+			<!-- Center Section - Social Media Icons -->
+			<div class="flex flex-col items-center gap-5">
+				<p class="font-semibold text-white md:text-base">Follow us</p>
+				<div class="flex space-x-4 text-white text-2xl">
+					<a href="#" class="hover:text-red-600"><i class="fab fa-twitter"></i></a>
+					<a href="#" class="hover:text-red-600"><i class="fab fa-facebook"></i></a>
+					<a href="#" class="hover:text-red-600"><i class="fab fa-instagram"></i></a>
+					<a href="#" class="hover:text-red-600"><i class="fab fa-linkedin"></i></a>
+					<a href="#" class="hover:text-red-600"><i class="fab fa-youtube"></i></a>
+					<a href="#" class="hover:text-red-600"><i class="fab fa-whatsapp"></i></a>
+				</div>
+				<p class="font-semibold text-xl md:text-3xl text-center text-white">Sky Energy Solution</p>
+			</div>
+	
+		</div>
+	
+		<!-- Copyright Line -->
+		<div class="text-center mt-6">
+			<p class="text-white text-sm md:text-base">© 2024 Sky Energy Solution. Powered by Faydabazar Pvt Ltd. All rights reserved.</p>
+		</div>
+	</div>
+	
+    
+    
+
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+            hamburger.classList.add('open');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+            hamburger.classList.remove('open');
+        });
+    </script>
+</body>
+
+</html>

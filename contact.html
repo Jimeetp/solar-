@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="images/Digital Agriculture System.png" type="image/x-icon">
+    <style>
+        #hamburger.open .bar:nth-child(1) {
+            transform: rotate(45deg);
+            translate: 5px 5px;
+        }
+
+        #hamburger.open .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        #hamburger.open .bar:nth-child(3) {
+            transform: rotate(-45deg);
+            translate: 5px -5px;
+        }
+
+        /* Mobile menu full screen background */
+        #mobile-menu {
+            background-color: black;
+        }
+
+        .underline-animation::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            /* Adjust the thickness of the underline */
+            background-color: white;
+            /* Set the underline color */
+            transition: width 0.3s ease;
+            /* Smooth transition */
+        }
+
+        .underline-animation:hover::after {
+            width: 100%;
+            /* Expands underline from left to right on hover */
+        }
+
+        .text-shadow-gradient {
+            text-shadow: 0 5px 10px rgba(0, 0, 0, 0.7), 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="absolute top-0 w-full flex justify-between items-center p-2 bg-gray-900 z-50">
+        <a href="index.html"><img src="images/Digital Agriculture System.png" alt="Sky Energy Solution Logo"
+                class="logo w-32 md:w-40"></a>
+        <!-- Navbar for desktop and mobile -->
+        <nav class="hidden md:block">
+            <ul class="flex space-x-5 text-lg">
+                <li>
+                    <a href="index.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        About Us
+                    </a>
+                </li>
+
+                <li>
+                    <a href="products.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Products
+                    </a>
+                </li>
+
+                <!-- <li>
+                    <a href="media.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Media
+                    </a>
+                </li> -->
+                <li>
+                    <a href="download.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Downloads
+                    </a>
+                </li>
+
+                <li>
+                    <a href="blog.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Blogs
+                    </a>
+                </li>
+                <li>
+                    <a href="career.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Careers
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html"
+                        class="text-white hover:text-red-600 transition-colors duration-300 relative underline-animation">
+                        Contact Us
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Mobile menu button (hamburger) -->
+        <div class="md:hidden">
+            <button id="hamburger" class="text-white text-2xl">
+                <div class="bar w-6 h-1 bg-white mb-1"></div>
+                <div class="bar w-6 h-1 bg-white mb-1"></div>
+                <div class="bar w-6 h-1 bg-white mb-1"></div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobile-menu"
+        class="md:hidden fixed top-0 left-0 w-full h-full bg-black transform translate-x-full transition-transform duration-300 z-50">
+        <!-- Close button -->
+        <button id="close-menu" class="absolute top-5 right-5 text-white text-3xl">✖</button>
+        <ul class="flex flex-col items-center justify-center space-y-5 text-white text-lg h-full">
+            <li><a href="index.html" class="hover:text-red-600 transition-colors duration-300">Home</a></li>
+            <li><a href="about.html" class="hover:text-red-600 transition-colors duration-300">About Us</a></li>
+            <li><a href="products.html" class="hover:text-red-600 transition-colors duration-300">Products</a></li>
+            <!-- <li><a href="media.html" class="hover:text-red-600 transition-colors duration-300">Media</a></li> -->
+            <li><a href="download.html" class="hover:text-red-600 transition-colors duration-300">Downloads</a></li>
+            <li><a href="blog.html" class="hover:text-red-600 transition-colors duration-300">Blog</a></li>
+            <li><a href="career.html" class="hover:text-red-600 transition-colors duration-300">Careers</a></li>
+            <li><a href="contact.html" class="hover:text-red-600 transition-colors duration-300">Contact Us</a></li>
+        </ul>
+    </div>
+
+
+
+
+
+    <section
+    class="w-full mx-auto mt-36 bg-gradient-to-r from-white via-blue-50 to-blue-100 p-8 rounded-lg shadow-lg py-24">
+    <h2
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-red-600 mb-6 text-shadow-gradient">
+        Solar System Installation Registration
+    </h2>
+
+    <!-- Form Container -->
+    <div class="max-w-4xl mx-auto p-8 border border-blue-200 rounded-2xl bg-white shadow-2xl">
+        <form id="solarForm" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Full Name -->
+            <div class="w-full">
+                <label for="fullName" class="block text-lg font-semibold text-gray-700 mb-2">Full Name:</label>
+                <input type="text" id="fullName"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm hover:shadow-2xl focus:ring-2 focus:ring-red-600 focus:border-red-600 focus:outline-none transition-all duration-200"
+                    placeholder="Enter your full name" required>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="w-full">
+                <label for="phone" class="block text-lg font-semibold text-gray-700 mb-2">Phone Number:</label>
+                <input type="text" id="phone"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm hover:shadow-2xl focus:ring-2 focus:ring-red-600 focus:border-red-600 focus:outline-none transition-all duration-200"
+                    placeholder="Enter your phone number" required>
+            </div>
+
+            <!-- Email Address -->
+            <div class="w-full">
+                <label for="email" class="block text-lg font-semibold text-gray-700 mb-2">Email Address:</label>
+                <input type="email" id="email"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm hover:shadow-2xl focus:ring-2 focus:ring-red-600 focus:border-red-600 focus:outline-none transition-all duration-200"
+                    placeholder="Enter your email" required>
+            </div>
+
+            <!-- Installation Address -->
+            <div class="w-full lg:col-span-2">
+                <label for="address" class="block text-lg font-semibold text-gray-700 mb-2">Installation
+                    Address:</label>
+                <input type="text" id="address"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm hover:shadow-2xl focus:ring-2 focus:ring-red-600 focus:border-red-600 focus:outline-none transition-all duration-200"
+                    placeholder="Enter installation address" required>
+            </div>
+
+            <!-- City -->
+            <div class="w-full">
+                <label for="city" class="block text-lg font-semibold text-gray-700 mb-2">City:</label>
+                <input type="text" id="city"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm hover:shadow-2xl focus:ring-2 focus:ring-red-600 focus:border-red-600 focus:outline-none transition-all duration-200"
+                    placeholder="Enter city" required>
+            </div>
+
+            <!-- State -->
+            <div class="w-full">
+                <label for="state" class="block text-lg font-semibold text-gray-700 mb-2">State:</label>
+                <input type="text" id="state"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm hover:shadow-2xl focus:ring-2 focus:ring-red-600 focus:border-red-600 focus:outline-none transition-all duration-200"
+                    placeholder="Enter state" required>
+            </div>
+
+            <!-- ZIP Code -->
+            <div class="w-full">
+                <label for="zip" class="block text-lg font-semibold text-gray-700 mb-2">ZIP Code:</label>
+                <input type="text" id="zip"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm hover:shadow-2xl focus:ring-2 focus:ring-red-600 focus:border-red-600 focus:outline-none transition-all duration-200"
+                    placeholder="Enter ZIP code" required>
+            </div>
+
+            <!-- Type of Solar System -->
+            <div class="w-full">
+                <label for="systemType" class="block text-lg font-semibold text-gray-700 mb-2">Type of Solar
+                    System:</label>
+                <select id="systemType"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm hover:shadow-2xl focus:ring-2 focus:ring-red-600 focus:border-red-600 focus:outline-none transition-all duration-200">
+                    <option>Grid-Tied</option>
+                    <option>Off-Grid</option>
+                    <option>Hybrid</option>
+                </select>
+            </div>
+
+            <!-- System Capacity -->
+            <div class="w-full">
+                <label for="systemCapacity" class="block text-lg font-semibold text-gray-700 mb-2">System Capacity
+                    (in kW):</label>
+                <input type="text" id="systemCapacity"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm hover:shadow-2xl focus:ring-2 focus:ring-red-600 focus:border-red-600 focus:outline-none transition-all duration-200"
+                    placeholder="Enter system capacity" required>
+            </div>
+
+            <!-- Preferred Installation Date -->
+            <div class="w-full">
+                <label for="timeline" class="block text-lg font-semibold text-gray-700 mb-2">Preferred Installation
+                    Date:</label>
+                <input type="date" id="timeline"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm hover:shadow-2xl focus:ring-2 focus:ring-red-600 focus:border-red-600 focus:outline-none transition-all duration-200">
+            </div>
+
+            <!-- Additional Comments -->
+            <div class="w-full lg:col-span-3">
+                <label for="comments" class="block text-lg font-semibold text-gray-700 mb-2">Additional
+                    Comments:</label>
+                <textarea id="comments" rows="4"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm hover:shadow-2xl focus:ring-2 focus:ring-red-600 focus:border-red-600 focus:outline-none transition-all duration-200"
+                    placeholder="Any specific requirements or questions..."></textarea>
+            </div>
+        </form>
+
+        <!-- Submit Button -->
+        <div class="mt-6 flex justify-center">
+            <button type="button" onclick="sendMail()"
+                class="w-64 px-6 py-4 bg-gray-900 text-white text-xl font-semibold rounded-xl shadow-md hover:bg-red-600 hover:text-black hover:shadow-2xl focus:outline-none transition duration-300">
+                Submit
+            </button>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Reset form on page load
+    window.onload = function () {
+        sessionStorage.clear(); // Clear session storage to handle cached data
+        document.getElementById("solarForm").reset();
+    };
+
+    function sendMail() {
+        // Collect form data
+        const fullName = document.getElementById("fullName").value;
+        const phone = document.getElementById("phone").value;
+        const email = document.getElementById("email").value;
+        const address = document.getElementById("address").value;
+        const city = document.getElementById("city").value;
+        const state = document.getElementById("state").value;
+        const zip = document.getElementById("zip").value;
+        const systemType = document.getElementById("systemType").value;
+        const systemCapacity = document.getElementById("systemCapacity").value;
+        const timeline = document.getElementById("timeline").value;
+        const comments = document.getElementById("comments").value;
+
+        // Create the mailto link
+        const subject = encodeURIComponent("Solar System Registration");
+        const body = encodeURIComponent(`
+            Full Name: ${fullName}
+            Phone: ${phone}
+            Email: ${email}
+            Address: ${address}
+            City: ${city}
+            State: ${state}
+            ZIP: ${zip}
+            Type of Solar System: ${systemType}
+            System Capacity: ${systemCapacity}
+            Preferred Installation Date: ${timeline}
+            Additional Comments: ${comments}
+        `);
+
+        // Open Gmail
+        window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=skysolarsolutionhelp@gmail.com&su=${subject}&body=${body}`, "_blank");
+    }
+</script>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+    <div class="bg-gray-900 text-gray-700 py-8 px-4">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
+
+            <!-- Left Section - Details in a Box -->
+            <div
+                class="text-white p-6 w-full md:w-64 h-auto flex flex-col justify-between items-center md:items-start text-center md:text-left">
+                <p><span class="font-bold">Adress:</span><br>Office.no 423, 4th Floor, Northplaza Complex, Motera,
+                    Ahmedabad, Gujarat</p>
+                <p class="mt-2"><span class="font-bold">Email:</span><br>skysolarsolutionhelp@gmail.com</p>
+                <p class="mt-2"><span class="font-bold">Phone:</span><br>8799606056</p>
+            </div>
+
+            <!-- Center Section - Social Media Icons -->
+            <div class="flex flex-col items-center gap-5">
+                <p class="font-semibold text-white md:text-base">Follow us</p>
+                <div class="flex space-x-4 text-white text-2xl">
+                    <a href="#" class="hover:text-red-600"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-red-600"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-red-600"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-red-600"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-red-600"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="hover:text-red-600"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p class="font-semibold text-xl md:text-3xl text-center text-white">Sky Energy Solution </p>
+            </div>
+
+        </div>
+
+        <!-- Copyright Line -->
+        <div class="text-center mt-6">
+            <p class="text-white text-sm md:text-base">© 2024 Sky Energy Solution. Powered by Faydabazar Pvt Ltd. All
+                rights reserved.</p>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+        // Get elements
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        // Open the menu
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full'); // Open menu
+            hamburger.classList.add('open'); // Change hamburger to cross
+        });
+
+        // Close the menu
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full'); // Close menu
+            hamburger.classList.remove('open'); // Change cross back to hamburger
+        });
+    </script>
+
+
+</body>
+
+</html>
